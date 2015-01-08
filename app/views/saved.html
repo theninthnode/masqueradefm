@@ -1,0 +1,42 @@
+<div class="col-lg-8 col-xs-12 col-md-6">
+	<div class="media" ng-repeat="(key,track) in playlist">
+	  <a class="pull-left" href="#">
+	    <img class="media-object" src='{{track.artwork_url || "http://placehold.it/60"}}' width="60" alt="{{track.title}}">
+	  </a>
+	  <div class="media-body">
+	    <h4 class="media-heading">{{track.title}}</h4>
+	    #{{track.genre}}
+	    <div><a href="javascript:void(0)" ng-click="remove(key)">remove</a></div>
+	  </div>
+	</div>
+	<br>
+</div>
+<div class="col-lg-4 col-xs-12 col-md-6">
+	        <div class="well well-sm">
+            <audio data-player-control="audioPlayer" data-playlist="playlist" data-player-name="audioPlayer" audio-player>
+            </audio>
+            <div class="img-container" ng-click="doReveal()">
+                <img src='{{playingNow.artwork_url || "http://placehold.it/193"}}' alt="" width="100%">
+                <div class="genre" ng-show="audioPlayer.playing">#{{playingNow.genre}}</div>
+            </div>
+            <div class="text-center">
+	            <div class="clear clearfix track-title">
+	                {{playingNow.title}}
+	            </div>
+	            <div class="btn" ng-click="audioPlayer.prev()">
+	                <i class="glyphicon glyphicon-step-backward"></i>
+	            </div>
+	            <div class="btn" ng-click="audioPlayer.playPause()">
+	                <span ng-show="!audioPlayer.playing"><i class="glyphicon glyphicon-play"> </i></span>
+	                <span ng-show="audioPlayer.playing"><i class="glyphicon glyphicon-pause"> </i></span>
+	            </div>
+	            <div class="btn" ng-click="audioPlayer.next()">
+	                <i class="glyphicon glyphicon-step-forward"> </i>
+	            </div>
+	            <div class="progress">
+	                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: audioPlayer.currentTime*100/audioPlayer.duration + '%' }" style="width: 0%;">
+	                </div>
+            </div>
+</div>
+</div>
+</di>

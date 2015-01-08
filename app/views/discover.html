@@ -1,0 +1,51 @@
+<div class="col-lg-3 col-xs-12 col-md-6">
+        <div ng-controller="AuthCtrl">
+            <p ng-hide="loginObj.user"><a ng-click="fbLogin()" href="javascript:void(0)" ><img src="/images/login-facebook.gif" alt=""></a>
+            </p>
+        </div>
+        <div class="scrollbar">
+            <!-- <p><strong>Categories</strong></p> -->
+            <ul class="nav nav-pills nav-stacked" style="margin-bottom:20px;">
+                <li ng-class="{active: genre.on === true}" ng-repeat="genre in genres"><a href="#" ng-click="applyFilter(genre)">{{genre.genre | capitalize}}</a></li>
+            </ul>
+        </div>
+        <br>
+        <p><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><br><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fmasquerade.eu01.aws.af.cm&amp;width=153&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId=817486518266674" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:153px; height:35px;" allowTransparency="true"></iframe></p> 
+    </div>
+    <div class="col-lg-9 col-xs-12 col-md-6">
+        <div class="jumbotron">
+            <audio data-player-control="audioPlayer" data-playlist="playlist" data-player-name="audioPlayer" audio-player>
+            </audio>
+            <div class="img-container" ng-click="doReveal()">
+                <a href="javascript:void(0)" ng-show="revealed" title="Click to Reveal">
+                    <img src="{{cover_img}}" alt="" width="100%">
+                </a>
+                <a href="javascript:void(0)" ng-hide="revealed" class="cover-txt" ng-class="{large: second > 0}">{{cover_txt}}</a>
+                <div class="genre" ng-show="audioPlayer.playing">#{{playingNow.genre}}</div>
+            </div>
+            <div class="clear clearfix track-title">
+                {{title}}
+            </div>
+            <div class="btn" ng-click="audioPlayer.prev()">
+                <i class="glyphicon glyphicon-step-backward"></i>
+            </div>
+            <div class="btn" ng-click="audioPlayer.playPause()">
+                <span ng-show="!audioPlayer.playing"><i class="glyphicon glyphicon-play"> </i></span>
+                <span ng-show="audioPlayer.playing"><i class="glyphicon glyphicon-pause"> </i></span>
+            </div>
+            <div class="btn" ng-click="audioPlayer.next()">
+                <i class="glyphicon glyphicon-step-forward"> </i>
+            </div>
+            <div class="btn" ng-click="save()">
+                <i class="glyphicon" ng-class="current_is_saved ? 'glyphicon-star' : 'glyphicon-star-empty'"> </i>
+            </div>
+            <div class="btn" ng-click="ban()">
+                <i class="glyphicon glyphicon-ban-circle"> </i>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: audioPlayer.currentTime*100/audioPlayer.duration + '%' }" style="width: 0%;">
+                </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,121 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Masquerade.fm - Music for the Open-minded</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bower_components/ngprogress/ngProgress.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="masqueradeApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!-- <div class="container" ng-include="'views/main.html'" ng-controller="MainCtrl"></div> -->
+    <div class="container">
+        
+    <div class="header collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav nav-pills pull-right" ng-controller="AuthCtrl">
+        <li ng-class="{active: $state.includes('discover')}"><a ng-href="/#/discover">Discover</a></li>
+        <li ng-class="{active: $state.includes('saved')}"><a ng-href="/#/saved" ng-show="loginObj.user">Saved Tracks</a></li>
+        <li><a ng-href="#" ng-show="loginObj.user" ng-click="loginObj.$logout()">Logout</a></li>
+    </ul>
+    <h3 class="text-muted">masquerade<i>fm</i></h3>
+</div>
+<div class="row">
+    <div ui-view="main"></div>    
+</div>
+
+<!-- <div class="row marketing">
+    <h4>HTML5 Boilerplate</h4>
+    <p>
+        HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+    </p>
+
+    <h4>Angular</h4>
+    <p>
+        AngularJS is a toolset for building the framework most suited to your application development.
+    </p>
+
+    <h4>Karma</h4>
+    <p>Spectacular Test Runner for JavaScript.</p>
+</div> -->
+
+<div class="footer">
+    <p class='pull-left'>Much ♥ to SoundCloud</p>
+    <div class="pull-right">
+        <p><i>"Music for the open-minded"</i></p>
+        <p><a ng-href="https://twitter.com/MasqueradeFM" target="_blank">@MasqueradeFM</a></p>
+    </div>
+</div>
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-47740434-1', 'af.cm');
+        ga('send', 'pageview');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script type='text/javascript'
+        src='https://cdn.firebase.com/js/simple-login/1.2.5/firebase-simple-login.js'></script>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/ngprogress/build/ngProgress.js"></script>
+    <!-- endbower -->
+    <script src="bower_components/angular-audio-playlist/dist/angular-audio-player.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/angular-underscore/angular-underscore.js"></script>
+    <script src="bower_components/ngProgress/src/module.js"></script>
+    <script src="bower_components/ngProgress/src/directive.js"></script>
+    <script src="bower_components/ngProgress/src/provider.js"></script>
+    <!-- endbuild -->
+      <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/saved.js"></script>
+        <script src="scripts/controllers/auth.js"></script>
+        <script src="scripts/services/saved.js"></script>
+        <script src="scripts/directives/active_menu.js"></script>
+    <!-- endbuild -->
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+<script>
+SC.initialize({
+  client_id: 'd9b439ba055391c1950401ecc3940720'
+});
+</script>
+</body>
+</html>
